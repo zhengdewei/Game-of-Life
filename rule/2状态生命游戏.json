@@ -1,0 +1,87 @@
+{
+  "status" : [ {
+    "name" : "alive",
+    "color" : "blue",
+    "enabled" : true
+  },{
+    "name" : "sick",
+    "color" : "green",
+    "enabled" : false
+  }, 
+  {
+    "name" : "dead",
+    "color" : "white",
+    "enabled" : true
+  }],
+  "rules" : [ {
+    "dead" : [ {
+      "cond" : "num_sum == 3",
+      "future" : {
+        "dead" : 0.0,
+        "sick" : 0.0
+      }
+    } ],
+    "sick" : [ {
+      "cond" : "num_sum > 3 || num_sum <= 1",
+      "future" : {
+        "dead" : 0.9,
+        "sick" : 0.1
+      }
+    }, {
+      "cond" : "sick == 3",
+      "future" : {
+        "dead" : 0.7,
+        "sick" : 0.2
+      }
+    }, {
+      "cond" : "sick == 2",
+      "future" : {
+        "dead" : 0.6,
+        "sick" : 0.3
+      }
+    }, {
+      "cond" : "sick == 1",
+      "future" : {
+        "dead" : 0.5,
+        "sick" : 0.4
+      }
+    }, {
+      "cond" : "sick == 0",
+      "future" : {
+        "dead" : 0.1,
+        "sick" : 0.2
+      }
+    } ],
+    "alive" : [ {
+      "cond" : "num_sum > 3 || num_sum <= 1",
+      "future" : {
+        "dead" : 0.9,
+        "sick" : 0.1
+      }
+    }, {
+      "cond" : "sick == 3",
+      "future" : {
+        "dead" : 0.2,
+        "sick" : 0.7
+      }
+    }, {
+      "cond" : "sick == 2",
+      "future" : {
+        "dead" : 0.1,
+        "sick" : 0.6
+      }
+    }, {
+      "cond" : "sick == 1",
+      "future" : {
+        "dead" : 0.1,
+        "sick" : 0.5
+      }
+    }, {
+      "cond" : "sick == 0",
+      "future" : {
+        "dead" : 0.2,
+        "sick" : 0.5
+      }
+    } ]
+  } ]
+}
